@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2年1組のみんなへ</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom Animations & Styles */
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: scale(0.95); }
+      25% { opacity: 1; transform: scale(1); }
+      75% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(1.05); }
+    }
+    .animate-fade-in-out {
+      animation: fadeInOut 3.8s ease-in-out forwards;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+      background-color: #fbfaf8;
+      color: #333333;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+  <!-- ============================================================================== -->
+  <!-- 1. パスワード画面 -->
+  <!-- ============================================================================== -->
+  <div id="password-screen" class="min-h-screen flex flex-col items-center justify-center px-4">
+    <div class="bg-white p-8 md:p-10 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] max-w-sm w-full text-center border border-[#f0eee9]">
+      <h1 class="text-3xl font-bold text-[#6b5a50] mb-8 tracking-wider">2年1組へ</h1>
+      <form id="password-form" class="flex flex-col gap-5">
+        <div>
+          <input
+            type="password"
+            id="password-input"
+            placeholder="パスワードを入力"
+            class="w-full px-5 py-4 rounded-xl bg-[#f8f7f5] border border-[#e5e2db] focus:outline-none focus:ring-2 focus:ring-[#d4b9a3] text-center transition-all"
+            required
+          />
+          <p id="password-error" class="text-red-400 text-sm mt-2 hidden animate-bounce">
+            パスワードが違います
+          </p>
+        </div>
+        <button
+          type="submit"
+          class="w-full bg-[#c2a78f] hover:bg-[#a68c74] text-white font-medium py-4 px-4 rounded-xl transition-colors duration-300 shadow-sm cursor-pointer"
+        >
+          ページを開く
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============================================================================== -->
+  <!-- 2. オープニング演出画面 -->
+  <!-- ============================================================================== -->
+  <div id="opening-screen" class="hidden min-h-screen flex items-center justify-center">
+    <h1 class="text-4xl md:text-6xl lg:text-7xl text-[#7a6b61] tracking-[0.2em] font-serif animate-fade-in-out">
+      dear2-1
+    </h1>
+  </div>
+
+  <!-- ============================================================================== -->
+  <!-- 3. メインコンテンツ画面 -->
+  <!-- ============================================================================== -->
+  <div id="main-content" class="hidden animate-fade-in flex-grow">
+    
+    <!-- メインビジュアル（集合写真エリア） -->
+    <header class="w-full h-64 sm:h-96 md:h-[520px] bg-[#e8e4df] relative overflow-hidden">
+      <div id="hero-image-container" class="w-full h-full">
+        <!-- JSで画像またはプレースホルダーが注入されます -->
+      </div>
+      <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#fbfaf8] to-transparent pointer-events-none"></div>
+    </header>
+
+    <!-- クラス全体へのメッセージ -->
+    <section class="max-w-4xl mx-auto px-6 py-16 md:py-24 text-center">
+      <h2 class="text-2xl md:text-4xl font-bold mb-10 text-[#6b5a50] relative inline-block">
+        2年1組のみんなへ
+        <span class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-[#d4b9a3] rounded-full"></span>
+      </h2>
+      <div id="main-message" class="text-base md:text-xl leading-relaxed md:leading-loose whitespace-pre-wrap text-[#5a504a] text-left md:text-center mt-6">
+        <!-- JSでメッセージが注入されます -->
+      </div>
+    </section>
+
+    <!-- 動画エリア -->
+    <section class="max-w-5xl mx-auto px-6 py-8">
+      <div id="video-container" class="aspect-video bg-[#ecebe8] rounded-3xl overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.05)] border border-[#e5e2db] relative">
+        <!-- JSで動画またはプレースホルダーが注入されます -->
+      </div>
+    </section>
+
+    <!-- 実習生7名の紹介エリア -->
+    <section class="max-w-7xl mx-auto px-6 py-20 md:py-28">
+      <h2 class="text-2xl md:text-4xl font-bold mb-14 text-center text-[#6b5a50]">
+        教育実習生より
+      </h2>
+      <div id="teachers-grid" class="flex flex-wrap justify-center gap-6 md:gap-8">
+        <!-- JSで実習生カードが挿入されます -->
+      </div>
+    </section>
+
+    <!-- 生徒一人ひとりへのメッセージ検索エリア -->
+    <section class="max-w-3xl mx-auto px-6 py-12 mb-16">
+      <div class="bg-white rounded-[2rem] p-6 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-[#f0eee9]">
+        <h2 class="text-2xl md:text-3xl font-bold mb-3 text-center text-[#6b5a50]">
+          あなたへのメッセージ
+        </h2>
+        <p class="text-center text-[#8c8279] mb-8 text-sm md:text-base">
+          自分の名前を入力してみてください。（例：山田太郎）
+        </p>
+
+        <form id="search-form" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="名前を入力"
+            class="flex-grow px-5 py-4 rounded-xl bg-[#f8f7f5] border border-[#e5e2db] focus:outline-none focus:ring-2 focus:ring-[#d4b9a3] transition-all"
+          />
+          <button
+            type="submit"
+            class="bg-[#6b5a50] hover:bg-[#5a4b42] text-white font-medium py-4 px-8 rounded-xl transition-colors duration-300 whitespace-nowrap cursor-pointer"
+          >
+            探す
+          </button>
+        </form>
+
+        <!-- 検索結果表示枠 -->
+        <div id="search-result-container" class="mt-8 hidden"></div>
+      </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="py-10 text-center text-[#a69c92] text-sm border-t border-[#f0eee9]">
+      <p>心を込めて。 — 教育実習生一同</p>
+    </footer>
+  </div>
+
+  <!-- ============================================================================== -->
+  <!-- 4. JavaScript 処理＆データ定義 -->
+  <!-- ============================================================================== -->
+  <script>
+    /* ==============================================================================
+     * ▼▼▼ ここからデータを変更してください ▼▼▼
+     * この部分の文章やURLを書き換えることで、サイトの内容を簡単に変更できます。
+     * ============================================================================== */
+    const SITE_DATA = {
+      // 【1. パスワード】
+      password: "2-1",
+
+      // 【2. メインビジュアル画像URL】
+      // 集合写真の画像URLを入力してください。（空文字 "" の場合はメモリアルヘッダーが表示されます）
+      heroImage: "",
+
+      // 【3. クラス全体へのメッセージ】
+      // \n は改行を表します。
+      mainMessage: `2年1組のみんなへ。\n\n3週間の教育実習、本当にありがとうございました！\n最初はとても緊張していましたが、みんなの明るい挨拶と無邪気な笑顔にいつも元気をもらっていました。\n\n一緒に頑張った体育の練習、真剣に聞いてくれた毎日の授業、そして休み時間の他愛のないおしゃべり。\nそのすべてが、私たち実習生にとって一生の宝物のような思い出です。\n\nこれからそれぞれ新しい目標や夢に向かって進んでいくと思いますが、\n私たちはみんなのことをずっとずっと応援しています。\n\n本当に、ありがとうございました！`,
+
+      // 【4. 思い出動画URL】
+      // 動画のURL（mp4など）を入力してください。（空文字 "" の場合は「準備中」になります）
+      videoSrc: "", 
+
+      // 【5. 実習生7名の情報】
+      // image: "" にすると教科別のイニシャルアイコンが自動表示されます。
+      teachers: [
+        {
+          id: 1,
+          name: "藤井 ことは 先生",
+          subject: "国語",
+          image: "",
+          comment: "国語を担当しました。みんないつもありがとう"
+        },
+        {
+          id: 2,
+          name: "西園 菜々美 先生",
+          subject: "音楽",
+          image: "",
+          comment: "音楽を担当しました。楽しかったですありがとう"
+        },
+        {
+          id: 3,
+          name: "多田野 海輝 先生",
+          subject: "美術",
+          image: "",
+          comment: "美術を担当しました。みんな明るくて最高でした"
+        },
+        {
+          id: 4,
+          name: "石川 翔汰 先生",
+          subject: "技術",
+          image: "",
+          comment: "技術を担当しました。これめっちゃむずい"
+        },
+        {
+          id: 5,
+          name: "小林 千尋 先生",
+          subject: "体育",
+          image: "",
+          comment: "体育を担当しました。みんなのこと大好きです"
+        },
+        {
+          id: 6,
+          name: "中島 冬輝 先生",
+          subject: "体育",
+          image: "",
+          comment: "体育を担当しました。ありがとうみんな"
+        },
+        {
+          id: 7,
+          name: "立川 凌 先生",
+          subject: "数学",
+          image: "",
+          comment: "数学を担当しました。査定授業がんばれ！！"
+        }
+      ],
+
+      // 【6. 生徒一人ひとりへのメッセージ】
+      // 名前、メッセージを書いた実習生名、個別メッセージを設定します。
+      studentMessages: [
+        {
+          name: "山田太郎",
+          teacher: "石川 先生",
+          message: "山田くんへ\nいつも授業で積極的に手を挙げてくれてありがとう！\n山田くんのユニークな発言のおかげで、クラスがいつも明るくなりました。\n部活も応援しています！"
+        },
+        {
+          name: "佐藤花子",
+          teacher: "立川 先生",
+          message: "佐藤さんへ\n佐藤さんのノートのまとめ方は、実習生の間でも評判になるくらい丁寧でした！\n分からないところを積極的に質問しにきてくれたのも嬉しかったです。\nこれからもその探求心を大切にしてね。"
+        },
+        {
+          name: "鈴木一郎",
+          teacher: "藤井 先生",
+          message: "鈴木くんへ\n朝の挨拶運動で、毎日大きな声で爽やかに挨拶してくれたのがすごく印象的です。\n周りをパッと明るくできる素敵な魅力を持っています。これからも応援しています！"
+        }
+        // 下記のようにコピーして生徒数分追加できます
+      ]
+    };
+    /* ==============================================================================
+     * ▲▲▲ データの変更はここまで ▲▲▲
+     * ============================================================================== */
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // DOM Elements
+      const passwordScreen = document.getElementById('password-screen');
+      const passwordForm = document.getElementById('password-form');
+      const passwordInput = document.getElementById('password-input');
+      const passwordError = document.getElementById('password-error');
+
+      const openingScreen = document.getElementById('opening-screen');
+      const mainContent = document.getElementById('main-content');
+
+      const heroContainer = document.getElementById('hero-image-container');
+      const mainMessageEl = document.getElementById('main-message');
+      const videoContainer = document.getElementById('video-container');
+      const teachersGrid = document.getElementById('teachers-grid');
+
+      const searchForm = document.getElementById('search-form');
+      const searchInput = document.getElementById('search-input');
+      const searchResultContainer = document.getElementById('search-result-container');
+
+      // 1. レンダリング初期処理
+      renderHero();
+      renderMainMessage();
+      renderVideo();
+      renderTeachers();
+
+      // 2. パスワード送信処理
+      passwordForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const inputVal = passwordInput.value.trim();
+
+        if (inputVal === SITE_DATA.password) {
+          passwordError.classList.add('hidden');
+          // パスワード画面非表示 -> オープニング表示
+          passwordScreen.classList.add('hidden');
+          openingScreen.classList.remove('hidden');
+
+          // 3.8秒後にメイン画面へ移行
+          setTimeout(() => {
+            openingScreen.classList.add('hidden');
+            mainContent.classList.remove('hidden');
+            window.scrollTo(0, 0);
+          }, 3800);
+        } else {
+          passwordError.classList.remove('hidden');
+          passwordInput.value = '';
+        }
+      });
+
+      // 3. メッセージ検索処理
+      searchForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nameInput = searchInput.value.trim();
+        if (!nameInput) return;
+
+        // 空白文字を除去して比較
+        const cleanName = (str) => str.replace(/[\s\u3000]+/g, '');
+        const targetNormalized = cleanName(nameInput);
+
+        const match = SITE_DATA.studentMessages.find(
+          item => cleanName(item.name) === targetNormalized
+        );
+
+        searchResultContainer.classList.remove('hidden');
+        if (match) {
+          searchResultContainer.innerHTML = `
+            <div class="p-6 md:p-8 bg-[#faf8f5] border border-[#eadecf] rounded-2xl animate-fade-in text-left">
+              <h3 class="text-xl md:text-2xl font-bold mb-4 text-[#6b5a50] border-b border-[#eadecf] pb-3">
+                ${escapeHtml(match.name)} さんへ
+              </h3>
+              <p class="whitespace-pre-wrap leading-relaxed text-[#5a504a] mb-6 text-base md:text-lg">
+                ${escapeHtml(match.message)}
+              </p>
+              <p class="text-right text-[#8c8279] font-medium">
+                from <span class="text-[#6b5a50] font-bold">${escapeHtml(match.teacher)}</span>
+              </p>
+            </div>
+          `;
+        } else {
+          searchResultContainer.innerHTML = `
+            <div class="p-6 bg-[#fff6f5] border border-[#ffe5e3] text-[#c96360] rounded-2xl text-center animate-fade-in">
+              <p class="font-medium">メッセージを見つけられませんでした。</p>
+              <p class="text-sm mt-1 opacity-80">お名前（漢字・ひらがな等）を確認してもう一度お試しください。</p>
+            </div>
+          `;
+        }
+      });
+
+      // --- ヘルパー＆レンダリング関数群 ---
+      function renderHero() {
+        if (SITE_DATA.heroImage) {
+          heroContainer.innerHTML = `<img src="${SITE_DATA.heroImage}" alt="2年1組集合写真" class="w-full h-full object-cover">`;
+        } else {
+          heroContainer.innerHTML = `
+            <div class="w-full h-full min-h-[260px] md:min-h-[360px] flex flex-col items-center justify-center text-center p-8 bg-gradient-to-b from-[#f5eee6] to-[#fbfaf8]">
+              <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#e8dad0] text-[#7a6b61] mb-4 shadow-sm">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+              </div>
+              <span class="text-xs font-bold tracking-widest uppercase text-[#a39285] mb-2">3 Weeks Memorial</span>
+              <h2 class="text-3xl md:text-5xl font-serif font-bold text-[#6b5a50] tracking-wider mb-3">2年1組 メモリアル</h2>
+              <p class="text-sm md:text-base text-[#8c8279] max-w-md">教育実習生7名から、感謝を込めて</p>
+            </div>`;
+        }
+      }
+
+      function renderMainMessage() {
+        mainMessageEl.textContent = SITE_DATA.mainMessage;
+      }
+
+      function renderVideo() {
+        if (SITE_DATA.videoSrc) {
+          videoContainer.innerHTML = `
+            <video controls class="w-full h-full object-contain bg-black">
+              <source src="${SITE_DATA.videoSrc}">
+              お使いのブラウザは動画再生に対応していません。
+            </video>`;
+        } else {
+          videoContainer.innerHTML = `
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-[#9b9289] p-6 text-center">
+              <svg class="w-16 h-16 md:w-20 md:h-20 mb-4 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <p class="text-base md:text-lg font-medium">思い出の動画コーナー</p>
+              <p class="text-xs md:text-sm mt-1 opacity-75">（URLを設定すると再生可能になります）</p>
+            </div>`;
+        }
+      }
+
+      function renderTeachers() {
+        const getSubjectBadge = (subject) => {
+          const colors = {
+            '国語': 'bg-[#e8d5ce] text-[#7d5246]',
+            '音楽': 'bg-[#dce3e8] text-[#486375]',
+            '美術': 'bg-[#ebdce8] text-[#704870]',
+            '技術': 'bg-[#dedce8] text-[#4d4875]',
+            '体育': 'bg-[#dce8e0] text-[#426e50]',
+            '理科': 'bg-[#e8e6dc] text-[#6b6644]',
+            '数学': 'bg-[#e8dcdb] text-[#7a4846]'
+          };
+          return colors[subject] || 'bg-[#eae3dc] text-[#6b5a50]';
+        };
+
+        teachersGrid.innerHTML = SITE_DATA.teachers.map(t => {
+          const badgeClass = getSubjectBadge(t.subject);
+          const photoContent = t.image 
+            ? `<img src="${t.image}" alt="${escapeHtml(t.name)}" class="w-full h-full object-cover">`
+            : `<div class="w-full h-full flex flex-col items-center justify-center ${badgeClass} transition-colors">
+                <span class="text-3xl md:text-4xl font-bold font-serif mb-1">${escapeHtml(t.name.charAt(0))}</span>
+                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-white/70">${escapeHtml(t.subject || '実習生')}</span>
+               </div>`;
+
+          return `
+          <div class="w-full sm:w-[calc(50%-16px)] lg:w-[calc(33.333%-22px)] xl:w-[280px] bg-white rounded-3xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-[#f0eee9] hover:-translate-y-1.5 transition-transform duration-300 flex flex-col">
+            <div class="w-full aspect-square bg-[#f5f4f2] overflow-hidden relative">
+              ${photoContent}
+              ${t.image && t.subject ? `<span class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-[#6b5a50] text-xs font-bold px-3 py-1 rounded-full border border-[#f0eee9]">${escapeHtml(t.subject)}</span>` : ''}
+            </div>
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <div>
+                <h3 class="text-lg font-bold mb-3 text-[#6b5a50] text-center">${escapeHtml(t.name)}</h3>
+                <p class="text-sm leading-relaxed text-[#66605c]">${escapeHtml(t.comment)}</p>
+              </div>
+            </div>
+          </div>
+        `;
+        }).join('');
+      }
+
+      function escapeHtml(str) {
+        if (!str) return '';
+        return str
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+    });
+  </script>
+</body>
+</html>
